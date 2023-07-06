@@ -4,22 +4,22 @@ metadata:
   name: mydeployment
   namespace: default
   labels:
-    app: mywebapp
+    app: {{ .Values.appName }}
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: mywebapp
+      app: {{ .Values.appName }}
       tier: frontend
   template:
     metadata:
       labels:
-        app: mywebapp
+        app: {{ .Values.appName }}
         tier: frontend
     spec: # Pod spec
       containers:
       - name: mycontainer
-        image: devopsjourney1/mywebapp:latest
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: 80
         envFrom:
