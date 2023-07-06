@@ -2,5 +2,5 @@ appName: mywebapp
 type: LoadBalancer
 
 image:
-  name: devopsjourney1/mywebapp:latest
+  name: devopsjourney1/mywebapp
   tag: latest
